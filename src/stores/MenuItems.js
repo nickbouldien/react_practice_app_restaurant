@@ -1,7 +1,7 @@
 import {EventEmitter} from 'events'
 
 // Import the Dispatcher so we can use it
-import Dispatcher from '../Dispatcher'
+import Dispatcher from '../dispatchers/Dispatcher'
 
 class MenuItems extends EventEmitter{
   constructor(){

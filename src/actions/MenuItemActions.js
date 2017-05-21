@@ -7,7 +7,7 @@ export function createMainCourse(name){
   })
 }
 
-export function deleteMainCourse(name){
+export function deleteMainCourse(id){
   Dispatcher.dispatch({
     type: "DELETE_MAIN_COURSE",
     id: id
