@@ -42,6 +42,7 @@ handleActions(action){
     }
     case("DELETE_MAIN_COURSE"):{
       this.deleteMainCourse(action.id)
+      break
     }
     default: {}
   }
@@ -50,5 +51,5 @@ handleActions(action){
 const menuItems = new MenuItems();
 
 Dispatcher.register(menuItems.handleActions.bind(menuItems))
-
+//window.dispacher
 export default menuItems

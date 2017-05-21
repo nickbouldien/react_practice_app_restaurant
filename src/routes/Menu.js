@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
-import MenuItems from '../stores/MenuItems';
+import menuItems from '../stores/MenuItems';
+import {createMainCourse} from '../actions/MenuItemActions'
 
 class Menu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mainCourses: MenuItems.getAllMainCourses()
+      newCourseName: 'Course Name',
+      mainCourses: menuItems.getAllMainCourses()
      }
+  }
+
+  handleNewCourseNameChange(event){
+    this.setState({newCourseName: event.target.value})
+  }
+
+  handleAddCourse(){
+    createMainCourse(this.state.newCourseName)
+  }
+
+  componentWillMount(){
+    menuItems.on('change', function() {
+      this.setState({
+        mainCourses: menuItems.getAllMainCourses()
+      })
+    }.bind(this))
   }
 
   render() {
@@ -18,6 +36,11 @@ class Menu extends Component {
     return (
       <div>
         <h3>Main Courses</h3>
+        <h5>Add an item</h5>
+        <label>Main Course Name</label>
+        <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
+
+        <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
         <ul>
           {list}
         </ul>
