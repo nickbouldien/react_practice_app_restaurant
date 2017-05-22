@@ -6,7 +6,9 @@ class Home extends Component {
     return (
         <div className="App">
           <h1>Welcome to the cafe </h1>
-            <Link to="/menu">View menu</Link>
+          <h4>About us: </h4>
+          <p>Stuff about the restaurant/cafe goes here</p>
+          <Link to="/menu">View menu</Link>
         </div>
     );
   }

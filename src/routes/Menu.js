@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
-import {createMainCourse} from '../actions/MenuItemActions'
+import {createMainCourse} from '../actions/MenuItemActions';
+import {Link} from 'react-router-dom';
+
 
 class Menu extends Component {
   constructor(props) {
@@ -51,6 +53,8 @@ class Menu extends Component {
         <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
         <br />
         <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
+        <br />
+        <Link to="/">Back Home</Link>
       </div>
     )
   }
