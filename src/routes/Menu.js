@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
 import {createMainCourse} from '../actions/MenuItemActions';
 import {Link} from 'react-router-dom';
-
+import MenuService from '../services/MenuService'
 
 class Menu extends Component {
   constructor(props) {

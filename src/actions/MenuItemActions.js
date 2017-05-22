@@ -13,3 +13,11 @@ export function deleteMainCourse(id){
     id: id
   })
 }
+
+export function processFetchedMenuItems(menuItems){
+  Dispatcher.dispatch({
+    type: "MENU_ITEMS_FETCHED",
+    items: menuItems
+  }
+  )
+}

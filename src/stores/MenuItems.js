@@ -1,24 +1,18 @@
-import {EventEmitter} from 'events'
-
+import {EventEmitter} from 'events';
+import menuService from '../services/MenuService';
 // Import the Dispatcher so we can use it
 import Dispatcher from '../dispatchers/Dispatcher'
 
 class MenuItems extends EventEmitter{
   constructor(){
     super()
-    this.mainCourses = [
-      {
-        id: 132232323,
-        name: 'Cesar Salad'
-      },
-      {
-        id: 344434343,
-        name: 'Alaskan Crab Legs'
-      }
-    ]
+    this.mainCourses = []
   }
 
   getAllMainCourses() {
+    if(this.mainCourses.length === 0){
+      menuService.getMenuItems();
+    }
     return this.mainCourses;
   }
 
@@ -28,6 +22,11 @@ class MenuItems extends EventEmitter{
       name: name
     })
     this.emit('change');
+  }
+
+  addMainCourses(items){
+    this.mainCourses = items
+    this.emit('change')
   }
 
   deleteMainCourse(id) {
@@ -42,6 +41,10 @@ handleActions(action){
     }
     case("DELETE_MAIN_COURSE"):{
       this.deleteMainCourse(action.id)
+      break
+    }
+    case("MENU_ITEMS_FETCHED"):{
+      this.addMainCourses(action.items)
       break
     }
     default: {}
