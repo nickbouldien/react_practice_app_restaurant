@@ -28,22 +28,29 @@ class Menu extends Component {
   }
 
   render() {
-    let list = this.state.mainCourses.map((dish) => {
+    //console.log(this.state.mainCourses);
+    let list = this.state.mainCourses.map(function(dish) {
+      // console.log(list);
+      //console.log(dish.name);
+      return (
       <li key={dish.id}>
         {dish.name}
       </li>
-    })
+    )
+    }
+  )
     return (
       <div>
         <h3>Main Courses</h3>
-        <h5>Add an item</h5>
-        <label>Main Course Name</label>
-        <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
-
-        <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
         <ul>
           {list}
         </ul>
+        <h5>Add an item</h5>
+        <label>Main Course Name</label>
+        <br />
+        <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
+        <br />
+        <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
       </div>
     )
   }
