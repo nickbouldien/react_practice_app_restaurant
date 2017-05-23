@@ -14,7 +14,7 @@ class MenuService {
         name: 'Alaskan Crab Legs'
       }
     ])
-    }, 2000)
+  }, 1000)
   }
 }
 const menuService = new MenuService()

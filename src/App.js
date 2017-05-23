@@ -17,7 +17,7 @@ class App extends Component {
 
           <Route exact path='/' component={Home} />
           <Route exact path='/menu' component={Menu} />
-
+          {/* <Image src="../public/images/restaurant.jpg" /> */}
 
         </div>
     </Router>

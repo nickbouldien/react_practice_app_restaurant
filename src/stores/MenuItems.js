@@ -7,6 +7,22 @@ class MenuItems extends EventEmitter{
   constructor(){
     super()
     this.mainCourses = []
+    this.errors = {}
+  }
+
+  getErrors(){
+    return this.errors
+  }
+
+  validate(){
+    this.errors = {}
+    this.validateLength('name') // no id, right??
+  }
+
+  validateLength(fieldName){
+    if(this.mainCourses[fieldName] === ''){
+      this.addError(fieldName, 'is too long for the menu, try again')
+    }
   }
 
   getAllMainCourses() {
@@ -32,6 +48,8 @@ class MenuItems extends EventEmitter{
   deleteMainCourse(id) {
     // delete the main course item
   }
+
+
 
 handleActions(action){
   switch(action.type) {

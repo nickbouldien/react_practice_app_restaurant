@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  background-image: "../public/images/restaurant.jpg";
+  background-repeat: no-repeat;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

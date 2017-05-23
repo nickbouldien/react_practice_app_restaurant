@@ -9,6 +9,7 @@ class Home extends Component {
           <h4>About us: </h4>
           <p>Stuff about the restaurant/cafe goes here</p>
           <Link to="/menu">View menu</Link>
+          
         </div>
     );
   }
