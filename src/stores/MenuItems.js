@@ -7,6 +7,7 @@ class MenuItems extends EventEmitter{
   constructor(){
     super()
     this.mainCourses = []
+    this.sides = []
     this.errors = {}
   }
 
@@ -32,6 +33,13 @@ class MenuItems extends EventEmitter{
     return this.mainCourses;
   }
 
+  getAllSides() {
+    if(this.sides.length === 0){
+      menuService.getMenuItems();
+    }
+    return this.sides;
+  }
+
   addMainCourse(name) {
     this.mainCourses.push({
       id: new Date().valueOf(),
@@ -49,25 +57,23 @@ class MenuItems extends EventEmitter{
     // delete the main course item
   }
 
-
-
-handleActions(action){
-  switch(action.type) {
-    case("CREATE_MAIN_COURSE"): {
-      this.addMainCourse(action.name)
-      break
+  handleActions(action){
+    switch(action.type) {
+      case("CREATE_MAIN_COURSE"): {
+        this.addMainCourse(action.name)
+        break
+      }
+      case("DELETE_MAIN_COURSE"):{
+        this.deleteMainCourse(action.id)
+        break
+      }
+      case("MENU_ITEMS_FETCHED"):{
+        this.addMainCourses(action.items)
+        break
+      }
+      default: {}
     }
-    case("DELETE_MAIN_COURSE"):{
-      this.deleteMainCourse(action.id)
-      break
-    }
-    case("MENU_ITEMS_FETCHED"):{
-      this.addMainCourses(action.items)
-      break
-    }
-    default: {}
   }
-}
 }
 const menuItems = new MenuItems();
 

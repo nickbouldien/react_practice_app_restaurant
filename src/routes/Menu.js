@@ -9,7 +9,8 @@ class Menu extends Component {
     super(props)
     this.state = {
       newCourseName: 'Course Name',
-      mainCourses: menuItems.getAllMainCourses()
+      mainCourses: menuItems.getAllMainCourses(),
+      sides: menuItems.getAllSides()
      }
   }
 
@@ -38,15 +39,30 @@ class Menu extends Component {
       <li key={dish.id}>
         {dish.name}
       </li>
-    )
+      )
     }
   )
+  let sideList = this.state.sides.map(function(side) {
+    // console.log(list);
+    console.log(side.name);
+    return (
+        <li key={side.id}>
+          {side.name}
+        </li>
+        )
+      }
+    )
     return (
       <div>
         <h3>Main Courses</h3>
         <ul>
           {list}
         </ul>
+        <h3>Sides</h3>
+        <ul>
+          {sideList}
+        </ul>
+
         <h5>Add an item</h5>
         <label>Main Course Name</label>
         <br />

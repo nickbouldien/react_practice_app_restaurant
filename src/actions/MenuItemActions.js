@@ -18,6 +18,12 @@ export function processFetchedMenuItems(menuItems){
   Dispatcher.dispatch({
     type: "MENU_ITEMS_FETCHED",
     items: menuItems
+    })
   }
-  )
-}
+
+  export function processFetchedSides(sides){
+    Dispatcher.dispatch({
+      type: "SIDE_ITEMS_FETCHED",
+      items: sides
+      })
+    }
