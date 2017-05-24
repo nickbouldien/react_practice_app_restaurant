@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
-import {createMainCourse} from '../actions/MenuItemActions';
+import {createMainCourse, processFetchedMenuItems, processFetchedSides} from '../actions/MenuItemActions';
 import {Link} from 'react-router-dom';
-import MenuService from '../services/MenuService'
+import menuService from '../services/MenuService'
 
 class Menu extends Component {
   constructor(props) {
     super(props)
+    // take state out and
     this.state = {
       newCourseName: 'Course Name',
       mainCourses: menuItems.getAllMainCourses(),
@@ -15,26 +16,32 @@ class Menu extends Component {
   }
 
   handleNewCourseNameChange(event){
+    // move out! don't change the state in menu.js
     this.setState({newCourseName: event.target.value})
   }
 
   handleAddCourse(){
+
     createMainCourse(this.state.newCourseName)
+    // validate
+  }
+
+  handleUpdate(){
+    this.setState({
+      mainCourses: menuItems.getAllMainCourses(),
+      sides: menuItems.getAllSides()
+    }) //
   }
 
   componentWillMount(){
-    menuItems.on('change', function() {
-      this.setState({
-        mainCourses: menuItems.getAllMainCourses()
-      })
-    }.bind(this))
+    menuItems.on('change', this.handleUpdate.bind(this))
+    // processFetchedSides
+    // processFetchedMenuItems
   }
 
   render() {
     //console.log(this.state.mainCourses);
     let list = this.state.mainCourses.map(function(dish) {
-      // console.log(list);
-      //console.log(dish.name);
       return (
       <li key={dish.id}>
         {dish.name}
@@ -64,8 +71,7 @@ class Menu extends Component {
         </ul>
 
         <h5>Add an item</h5>
-        <label>Main Course Name</label>
-        <br />
+        <h6>Main Course Name</h6>
         <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
         <br />
         <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>

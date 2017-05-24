@@ -1,4 +1,4 @@
-import {EventEmitter} from 'events';
+import {EventEmitter, processFetchedMenuItems} from 'events';
 import menuService from '../services/MenuService';
 // Import the Dispatcher so we can use it
 import Dispatcher from '../dispatchers/Dispatcher'
@@ -11,26 +11,29 @@ class MenuItems extends EventEmitter{
     this.errors = {}
   }
 
-  getErrors(){
-    return this.errors
-  }
-
-  validate(){
-    this.errors = {}
-    this.validateLength('name') // no id, right??
-  }
-
-  validateLength(fieldName){
-    if(this.mainCourses[fieldName] === ''){
-      this.addError(fieldName, 'is too long for the menu, try again')
-    }
-  }
+  // getErrors(){
+  //   return this.errors
+  // }
+  //
+  // validate(){
+  //   this.errors = {}
+  //   this.validateLength('name') // no id, right??
+  // }
+  //
+  // validateLength(fieldName){
+  //   if(this.mainCourses[fieldName] === ''){
+  //     this.addError(fieldName, 'is too long for the menu, try again')
+  //   }
+  // }
 
   getAllMainCourses() {
     if(this.mainCourses.length === 0){
       menuService.getMenuItems();
     }
     return this.mainCourses;
+  }
+  getTheSideCourses(){
+    // return "hey"
   }
 
   getAllSides() {
@@ -53,9 +56,9 @@ class MenuItems extends EventEmitter{
     this.emit('change')
   }
 
-  deleteMainCourse(id) {
-    // delete the main course item
-  }
+  // deleteMainCourse(id) {
+  //   // delete the main course item
+  // }
 
   handleActions(action){
     switch(action.type) {
@@ -69,6 +72,10 @@ class MenuItems extends EventEmitter{
       }
       case("MENU_ITEMS_FETCHED"):{
         this.addMainCourses(action.items)
+        break
+      }
+      case("SIDE_ITEMS_FETCHED"):{
+        this.getTheSideCourses(action.items)
         break
       }
       default: {}
