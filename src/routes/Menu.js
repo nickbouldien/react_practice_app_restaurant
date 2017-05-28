@@ -10,6 +10,7 @@ class Menu extends Component {
     this.state = {
       newCourseName: 'Course Name',
       mainCourses: menuItems.getAllMainCourses()
+      // sideCourses: menuItems.getAllSideCourses()
      }
   }
 
@@ -25,34 +26,64 @@ class Menu extends Component {
     menuItems.on('change', function() {
       this.setState({
         mainCourses: menuItems.getAllMainCourses()
+        // sideCourses: menuItems.getAllSideCourses()
       })
     }.bind(this))
   }
 
   render() {
     //console.log(this.state.mainCourses);
-    let list = this.state.mainCourses.map(function(dish) {
-      // console.log(list);
-      //console.log(dish.name);
+
+
+
+    // let sideList = this.state.sideCourses.map(function(side) {
+    //   return (
+    //   <li key={side.id}>
+    //     {side.name}
+    //   </li>
+    //   )
+    // })
+
+    let mains = this.state.mainCourses.filter(function(main){
+      return main.type==='main'
+    })
+    let mainC = mains.map(function(main) {
       return (
-      <li key={dish.id}>
-        {dish.name}
+      <li key={main.id}>
+        {main.name}
       </li>
-    )
-    }
-  )
+      )
+    })
+
+    let sides = this.state.mainCourses.filter(function(side){
+      return side.type==='side'
+    })
+    let sideList = sides.map(function(side) {
+      return (
+      <li key={side.id}>
+        {side.name}
+      </li>
+      )
+    })
     return (
       <div>
         <h3>Main Courses</h3>
         <ul>
-          {list}
+          {mainC}
+        </ul>
+        <h3>Sides</h3>
+        <ul>
+          {sideList}
         </ul>
         <h5>Add an item</h5>
         <label>Main Course Name</label>
         <br />
-        <input value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)} />
+        <input
+          value={this.state.newCourseName} onChange={this.handleNewCourseNameChange.bind(this)}
+        />
         <br />
         <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
+        <br />
         <br />
         <Link to="/">Back Home</Link>
       </div>
