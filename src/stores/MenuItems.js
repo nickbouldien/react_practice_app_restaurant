@@ -7,6 +7,7 @@ class MenuItems extends EventEmitter{
   constructor(){
     super()
     this.mainCourses = []
+    this.sideCourses = []
   }
 
   getAllMainCourses() {
@@ -15,11 +16,18 @@ class MenuItems extends EventEmitter{
     }
     return this.mainCourses;
   }
+  getAllSideCourses() {
+    if(this.sideCourses.length === 0){
+      menuService.getMenuItems();
+    }
+    return this.sideCourses;
+  }
 
   addMainCourse(name) {
     this.mainCourses.push({
       id: new Date().valueOf(),
-      name: name
+      name: name,
+      type: 'main'
     })
     this.emit('change');
   }
@@ -31,6 +39,9 @@ class MenuItems extends EventEmitter{
 
   deleteMainCourse(id) {
     // delete the main course item
+    this.mainCourses = this.mainCourses.filter(function(courses){
+      return courses.id != id
+    })
   }
 
 handleActions(action){
