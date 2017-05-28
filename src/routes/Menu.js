@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
-import {createMainCourse} from '../actions/MenuItemActions';
+import {createMainCourse, deleteMainCourse} from '../actions/MenuItemActions';
 import {Link} from 'react-router-dom';
 import MenuService from '../services/MenuService'
 
@@ -31,26 +31,24 @@ class Menu extends Component {
     }.bind(this))
   }
 
+  handleDeleteCourse(main){
+    //console.log('delete', main.id);
+    deleteMainCourse(main.id)
+  }
+
   render() {
-    //console.log(this.state.mainCourses);
-
-
-
-    // let sideList = this.state.sideCourses.map(function(side) {
-    //   return (
-    //   <li key={side.id}>
-    //     {side.name}
-    //   </li>
-    //   )
-    // })
 
     let mains = this.state.mainCourses.filter(function(main){
       return main.type==='main'
     })
-    let mainC = mains.map(function(main) {
+    let mainC = mains.map((main) => {
       return (
       <li key={main.id}>
-        {main.name}
+        {main.name}:
+        {console.log(this)}
+        <button
+          onClick={this.handleDeleteCourse.bind(this, main) }
+          id={main.id}>Delete</button>
       </li>
       )
     })
@@ -66,7 +64,7 @@ class Menu extends Component {
       )
     })
     return (
-      <div>
+      <div className="nick">
         <h3>Main Courses</h3>
         <ul>
           {mainC}
@@ -92,3 +90,14 @@ class Menu extends Component {
 }
 
 export default Menu;
+
+
+
+
+// let sideList = this.state.sideCourses.map(function(side) {
+//   return (
+//   <li key={side.id}>
+//     {side.name}
+//   </li>
+//   )
+// })

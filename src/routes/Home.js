@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class Home extends Component {
   render() {
     return (
-        <div className="App">
+        <div className="Appstuff">
           <h1>Welcome to the cafe </h1>
           <h4>About us: </h4>
           <p>Stuff about the restaurant/cafe goes here</p>
