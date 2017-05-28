@@ -1,3 +1,14 @@
+
+WIP project to create a basic retaurant webiste that diplays some basic information about the restuarant, and has a page to view what is one the menu (main courses and sides).  Currently can add a new main course, or delete a main course (without being logged in).
+Currently not connected to anything on the backend.  Strictly a react/frontend application.
+
+TO DO:
+have login feature to only let admins add/delete main courses on the menu
+connect to database
+much better styling
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
