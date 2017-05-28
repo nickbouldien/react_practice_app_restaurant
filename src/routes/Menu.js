@@ -64,7 +64,7 @@ class Menu extends Component {
       )
     })
     return (
-      <div>
+      <div className="nick">
         <h3>Main Courses</h3>
         <ul>
           {mainC}
