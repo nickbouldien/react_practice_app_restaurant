@@ -7,7 +7,7 @@ class MenuItems extends EventEmitter{
   constructor(){
     super()
     this.mainCourses = []
-    this.sideCourses = []
+    //this.sideCourses = []
   }
 
   getAllMainCourses() {
@@ -42,6 +42,7 @@ class MenuItems extends EventEmitter{
     this.mainCourses = this.mainCourses.filter(function(courses){
       return courses.id != id
     })
+    this.emit('change')
   }
 
 handleActions(action){
