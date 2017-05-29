@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: gray;
-  opacity: 0.4;
+  /*opacity: 0.4;*/
 }
 
 .Appstuff {
@@ -17,6 +17,10 @@
   height: 80px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
@@ -27,8 +31,6 @@
 .App-intro {
   font-size: large;
 }
-
-
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
