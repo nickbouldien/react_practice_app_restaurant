@@ -11,7 +11,7 @@ class Home extends Component {
           <h4>Brad Thomas</h4>
           <ul>
             <li>Owner/CEO</li>
-            <li>MBA Harvar University </li>
+            <li>MBA Harvard University </li>
           </ul>
 
           <h4>Chef Tony</h4>
@@ -22,17 +22,15 @@ class Home extends Component {
 
           <h4>Chef Victor</h4>
           <ul>
-            <li>Sioux Lead chef</li>
+            <li>Sioux Chef</li>
             <li>Graduate of New York Culinary Institute</li>
           </ul>
-
 
           <h4>Ana Rodriguez</h4>
           <ul>
             <li>Head of Marketing and Operations</li>
             <li>MBA University of New York</li>
           </ul>
-
 
           <Link to="/">Home</Link>
         </div>

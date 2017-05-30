@@ -1,20 +1,25 @@
 .App {
   text-align: center;
-  background-color: gray;
-  /*opacity: 0.4;*/
+  background-color:rgba(192,192,192,0.5);
 }
 
-.Appstuff {
-  /*opacity: 0.4;*/
+/*.Appstuff {
+  opacity: 0.4;
+}*/
+
+h1, h3, ul, li, a {
+  opacity: 1;
 }
 
-.nick {
-  background-color: gray;
-  /*opacity: 0.6;*/
-}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+hr {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
 ul {

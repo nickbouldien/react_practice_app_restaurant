@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
 import {createMainCourse, deleteMainCourse} from '../actions/MenuItemActions';
 import {Link} from 'react-router-dom';
-import MenuService from '../services/MenuService'
+//import MenuService from '../services/MenuService'
 
 class Menu extends Component {
   constructor(props) {
@@ -45,7 +45,8 @@ class Menu extends Component {
       return (
       <li key={main.id}>
         {main.name}:
-        {console.log(this)}
+        {/* {console.log(this)} */}
+
         <button
           onClick={this.handleDeleteCourse.bind(this, main) }
           id={main.id}>Delete</button>
@@ -69,11 +70,13 @@ class Menu extends Component {
         <ul>
           {mainC}
         </ul>
+        <hr />
         <h3>Sides</h3>
         <ul>
           {sideList}
         </ul>
-        <h5>Add an item</h5>
+        <hr />
+        <h4>Add an item</h4>
         <label>Main Course Name</label>
         <br />
         <input

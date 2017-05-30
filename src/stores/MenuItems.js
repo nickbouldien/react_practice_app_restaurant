@@ -40,7 +40,7 @@ class MenuItems extends EventEmitter{
   deleteMainCourse(id) {
     // delete the main course item
     this.mainCourses = this.mainCourses.filter(function(courses){
-      return courses.id != id
+      return courses.id !== id
     })
     this.emit('change')
   }
