@@ -8,18 +8,18 @@ class Menu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newCourseName: 'Course Name',
-      mainCourses: menuItems.getAllMainCourses()
+      // newCourseName: 'Course Name',
+      allCourses: menuItems.getAllCourses()
      }
   }
 
-  handleNewCourseNameChange(event){
-    this.setState({newCourseName: event.target.value})
-  }
+  // handleNewCourseNameChange(event){
+  //   this.setState({newCourseName: event.target.value})
+  // }
 
-  handleAddCourse(){
-    createMainCourse(this.state.newCourseName)
-  }
+  // handleAddCourse(){
+  //   createMainCourse(this.state.newCourseName)
+  // }
 
   componentWillMount(){
     menuItems.on('change', function() {
@@ -28,6 +28,7 @@ class Menu extends Component {
         // sideCourses: menuItems.getAllSideCourses()
       })
     }.bind(this))
+    console.log(this.state);
   }
 
   handleDeleteCourse(main){
@@ -37,7 +38,7 @@ class Menu extends Component {
 
   render() {
 
-    let mains = this.state.mainCourses.filter(function(main){
+    let mains = this.state.allCourses.filter(function(main){
       return main.type==='main'
     })
     let mainC = mains.map((main) => {
@@ -53,7 +54,7 @@ class Menu extends Component {
       )
     })
 
-    let sides = this.state.mainCourses.filter(function(side){
+    let sides = this.state.allCourses.filter(function(side){
       return side.type==='side'
     })
     let sideList = sides.map(function(side) {
@@ -75,7 +76,7 @@ class Menu extends Component {
           {sideList}
         </ul>
         <hr />
-        <h4>Add an item</h4>
+        {/* <h4>Add an item</h4>
         <label>Main Course Name</label>
         <br />
         <input
@@ -84,7 +85,7 @@ class Menu extends Component {
         <br />
         <button onClick={this.handleAddCourse.bind(this)}>Add Course</button>
         <br />
-        <br />
+        <br /> */}
         <Link to="/">Back Home</Link>
       </div>
     )

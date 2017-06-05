@@ -6,38 +6,60 @@ import Dispatcher from '../dispatchers/Dispatcher'
 class MenuItems extends EventEmitter{
   constructor(){
     super()
-    this.mainCourses = []
+    this.allCourses = [
+      {
+      id: 344434343,
+      name: 'Alaskan Crab Legs',
+      type: 'main'
+      },
+      {
+        id: 33445534636,
+        name: 'Steak',
+        type: 'main'
+      },
+      {
+        id: 12345534636,
+        name: 'Macaroni and Cheese',
+        type: 'side'
+      },
+      {
+        id: 12345538927,
+        name: 'Baked Potato',
+        type: 'side'
+      }
+    ]
     //this.sideCourses = []
   }
 
-  getAllMainCourses() {
-    if(this.mainCourses.length === 0){
-      menuService.getMenuItems();
-    }
-    return this.mainCourses;
-  }
-  getAllSideCourses() {
-    if(this.sideCourses.length === 0){
-      menuService.getMenuItems();
-    }
-    return this.sideCourses;
+  getAllCourses() {
+    // if(this.allCourses.length === 0){
+    //   menuService.getMenuItems();
+    // }
+    return this.allCourses;
   }
 
+  // getAllSideCourses() {
+  //   if(this.sideCourses.length === 0){
+  //     menuService.getMenuItems();
+  //   }
+  //   return this.sideCourses;
+  // }
+
   addMainCourse(course) {
-    this.mainCourses.push({
-      id: new Date().valueOf(),
-      name: course.name,
+    this.allCourses.push({
+      // id: new Date().valueOf(),
+      courseName: course.courseName,
       type: course.type,
       cost: course.cost,
       description: course.description
     })
     this.emit('change');
   }
-
-  addMainCourses(items){
-    this.mainCourses = items
-    this.emit('change')
-  }
+  //
+  // addMainCourses(items){
+  //   this.mainCourses = items
+  //   this.emit('change')
+  // }
 
   deleteMainCourse(id) {
     // delete the main course item
