@@ -18,6 +18,10 @@ app.get('/', function (request, response) {
   response.json({message: 'API Example App'})
 });
 
+app.post('/test', function(request, response){
+  response.json({params: request.body})
+})
+
 app.get('/players', function (request, response) {
   Player.findAll().then(function(players){
     response.status(200)

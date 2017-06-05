@@ -2,6 +2,7 @@
 
 # dependencies
 /restaurant_backend/node_modules
+/node_modules
 
 # testing
 /coverage
