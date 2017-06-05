@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
-// const Team = require('./models').Team
+const Menu = require('./models').Menu
 // const Player = require('./models').Player
 // const User = require('./models').User
 
@@ -21,6 +21,29 @@ app.get('/', function (request, response) {
 app.post('/test', function(request, response){
   response.json({params: request.body})
 })
+
+app.post('/add-course', function(request, response){
+  Menu.create(
+    {
+      courseName: request.body.course.courseName,
+      type: request.body.course.type,
+      description: request.body.course.description,
+      cost: request.body.course.cost
+    }
+  ).then((course)=>{
+    response.json({
+      message: 'success',
+      course: course
+    })
+  }).catch((error)=>{
+    response.status(400)
+    response.json({
+      message: "Unable to create Course",
+      errors: error.errors
+    })
+  })
+})
+
 
 app.get('/players', function (request, response) {
   Player.findAll().then(function(players){
