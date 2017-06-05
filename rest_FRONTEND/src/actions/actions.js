@@ -1,9 +1,10 @@
 import Dispatcher from '../dispatchers/Dispatcher';
 
-export function createMainCourse(name){
+export function createMainCourse(course){
+  console.log(course);
   Dispatcher.dispatch({
     type: "CREATE_MAIN_COURSE",
-    name: name
+    course: course
   })
 }
 

@@ -23,11 +23,13 @@ class MenuItems extends EventEmitter{
     return this.sideCourses;
   }
 
-  addMainCourse(name) {
+  addMainCourse(course) {
     this.mainCourses.push({
       id: new Date().valueOf(),
-      name: name,
-      type: 'main'
+      name: course.name,
+      type: course.type,
+      cost: course.cost,
+      description: course.description
     })
     this.emit('change');
   }
@@ -48,7 +50,7 @@ class MenuItems extends EventEmitter{
 handleActions(action){
   switch(action.type) {
     case("CREATE_MAIN_COURSE"): {
-      this.addMainCourse(action.name)
+      this.addMainCourse(action.course)
       break
     }
     case("DELETE_MAIN_COURSE"):{

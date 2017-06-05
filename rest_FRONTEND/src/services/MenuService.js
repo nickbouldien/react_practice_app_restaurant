@@ -1,4 +1,4 @@
-import {processFetchedMenuItems} from '../actions/MenuItemActions';
+import {processFetchedMenuItems} from '../actions/actions';
 
 
 class MenuService {

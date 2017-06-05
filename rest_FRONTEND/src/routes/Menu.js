@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import menuItems from '../stores/MenuItems';
-import {createMainCourse, deleteMainCourse} from '../actions/MenuItemActions';
+import {createMainCourse, deleteMainCourse} from '../actions/actions';
 import {Link} from 'react-router-dom';
 //import MenuService from '../services/MenuService'
 
@@ -10,7 +10,6 @@ class Menu extends Component {
     this.state = {
       newCourseName: 'Course Name',
       mainCourses: menuItems.getAllMainCourses()
-      // sideCourses: menuItems.getAllSideCourses()
      }
   }
 
