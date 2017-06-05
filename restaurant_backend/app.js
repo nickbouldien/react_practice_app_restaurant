@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const Menu = require('./models').Menu
-// const Player = require('./models').Player
-// const User = require('./models').User
+const Staff = require('./models').Staff
 
 var cors = require('cors')
 
@@ -44,6 +43,26 @@ app.post('/add-course', function(request, response){
   })
 })
 
+app.post('/add-staff', function(request, response){
+  Staff.create(
+    {
+      firstName: request.body.staff.firstName,
+      lastName: request.body.staff.lastName,
+      position: request.body.staff.position
+    }
+  ).then((staff)=>{
+    response.json({
+      message: 'success',
+      staff: staff
+    })
+  }).catch((error)=>{
+    response.status(400)
+    response.json({
+      message: "Unable to create Course",
+      errors: error.errors
+    })
+  })
+})
 
 app.get('/players', function (request, response) {
   Player.findAll().then(function(players){
