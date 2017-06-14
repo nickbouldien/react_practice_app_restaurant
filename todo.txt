@@ -4,3 +4,12 @@
 
 // login function so only authorized can add/delete menu items
 //
+
+
+React @ Whooo's Reading Presentation:
+https://docs.google.com/presentation/d/1k1NmgNNh1wI-nLsr3UQjCQnX0QTeJJzL-r70Fud-6rs/edit?usp=sharing
+
+React Starter Project:
+https://github.com/rauschma/react-starter-project
+
+Canonical
