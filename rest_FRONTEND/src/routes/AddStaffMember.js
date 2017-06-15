@@ -74,13 +74,14 @@ class AddStaffMember extends Component {
           <div className='formGroup'>
             <label htmlFor='type'>Position</label>
             <select
-              name='type'
+              name='position'
               id='type'
               value={this.state.staff.position}
               onChange={this.handleChange.bind(this)}>
-              <option>Main</option>
-              <option></option>
+              <option>Head Chef</option>
+              <option>Sioux Chef</option>
               <option>Bartender</option>
+              <option>Server</option>
 
             </select>
           </div>
