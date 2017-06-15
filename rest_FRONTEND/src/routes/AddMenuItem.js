@@ -26,6 +26,7 @@ class AddMenuItem extends Component {
     this.setState({
       course: course
     })
+    console.log(this.course);
   }
 
   handleSubmit(e){
@@ -60,12 +61,9 @@ class AddMenuItem extends Component {
   render(){
     return(
       <div>
-        <div className="App-header">
-          <h2>Add A Course</h2>
-          <div className="pull-right">
-            <Link to="/">Back</Link>
-          </div>
-        </div>
+
+        <h2>Add A Course</h2>
+        <Link to="/">Back</Link>
         {/* <ImagesUploader
          url="http://localhost:4000/files"
          optimisticPreviews
@@ -97,7 +95,9 @@ class AddMenuItem extends Component {
               type='number'
               name='cost'
               id='age'
-              value={this.state.course.cost} onChange={this.handleChange.bind(this)}></input>
+              value={this.state.course.cost}
+              onChange={this.handleChange.bind(this)}>
+            </input>
           </div>
 <br />
           <div className='formGroup'>

@@ -53,6 +53,7 @@ class Menu extends Component {
       </li>
       )
     })
+          // make two columns for main/sides (also add beverages)
 
     let sides = this.state.allCourses.filter(function(side){
       return side.type==='side'

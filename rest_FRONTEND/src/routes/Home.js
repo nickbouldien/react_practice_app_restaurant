@@ -11,6 +11,11 @@ class Home extends Component {
           <Link to="/menu">View menu</Link>
           <br />
           <Link to="/about">View Staff</Link>
+          <br />
+          <Link to="/add-course">Add course (//going to be protected)</Link>
+          <br />
+          <Link to="/add-staff">Add staff member (//going to be protected)</Link>
+
         </div>
     );
   }

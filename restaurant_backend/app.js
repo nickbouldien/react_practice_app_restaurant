@@ -44,11 +44,12 @@ app.post('/add-course', function(request, response){
 })
 
 app.post('/add-staff', function(request, response){
+  console.log(request.body);
   Staff.create(
     {
-      firstName: request.body.staff.firstName,
-      lastName: request.body.staff.lastName,
-      position: request.body.staff.position
+      firstName: request.body.staffMember.firstName,
+      lastName: request.body.staffMember.lastName,
+      position: request.body.staffMember.position
     }
   ).then((staff)=>{
     response.json({

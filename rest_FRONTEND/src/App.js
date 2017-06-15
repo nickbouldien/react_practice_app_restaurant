@@ -8,6 +8,7 @@ import Menu from './routes/Menu';
 import Home from './routes/Home';
 import About from './routes/About';
 import AddMenuItem from './routes/AddMenuItem';
+import AddStaffMember from './routes/AddStaffMember';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path='/menu' component={Menu} />
           <Route exact path='/about' component={About} />
           <Route exact path='/add-course' component={AddMenuItem} />
+          <Route exact path='/add-staff' component={AddStaffMember} />
 
         </div>
     </Router>
