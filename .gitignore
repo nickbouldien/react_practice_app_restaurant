@@ -2,8 +2,14 @@
 
 # dependencies
 /restaurant_backend/node_modules
+/restaurant_backend/node_modules/*
 /node_modules
 node_modules/
+/node_modules/
+node_modules/
+/rest_FRONTEND/node_modules/*
+/rest_FRONTEND/node_modules
+*package-lock.json
 
 # testing
 /coverage
