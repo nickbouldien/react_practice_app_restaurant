@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-class Home extends Component {
+class About extends Component {
   render() {
     return (
         <div className="Appstuff">
@@ -38,4 +38,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default About;
